@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказ зеркала | Monro.Mirror</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+    .form-container {
+      background-color: #fff;
+      max-width: 500px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      background-color: #222;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Заказ зеркала Monro.Mirror</h2>
+    <form id="mirrorForm">
+      <label for="name">Имя</label>
+      <input type="text" id="name" required>
+
+      <label for="model">Модель зеркала</label>
+      <input type="text" id="model" required>
+
+      <label for="size">Размер (Ш х В)</label>
+      <input type="text" id="size" required>
+
+      <label for="material">Материал / цвет рамы</label>
+      <input type="text" id="material" required>
+
+      <label for="delivery">Город и способ доставки</label>
+      <input type="text" id="delivery" required>
+
+      <label for="comment">Комментарий</label>
+      <textarea id="comment" rows="3"></textarea>
+
+      <button type="submit">Отправить в WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('mirrorForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const model = document.getElementById('model').value;
+      const size = document.getElementById('size').value;
+      const material = document.getElementById('material').value;
+      const delivery = document.getElementById('delivery').value;
+      const comment = document.getElementById('comment').value;
+
+      const message = `Привет! Хочу заказать зеркало.%0AИмя: ${name}%0AМодель: ${model}%0AРазмер: ${size}%0AМатериал: ${material}%0AДоставка: ${delivery}%0AКомментарий: ${comment}`;
+      const whatsappUrl = `https://wa.me/79089174662?text=${encodeURI(message)}`;
+
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
